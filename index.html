@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Charlotte Hanna — Luxury Petite Clothing</title>
+  <meta name="description" content="Charlotte Hanna creates refined, proportion-perfect luxury clothing for petites. Tailoring-first silhouettes, couture fabrics, and timeless design." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --ink:#111111;
+      --carbon:#3a3a3a;
+      --champagne:#c1b7a3;
+      --porcelain:#f6f3ee;
+      --white:#ffffff;
+      --max:1200px;
+      --radius:14px;
+      --ring:1px solid rgba(17,17,17,.12);
+      --shadow:0 8px 24px rgba(17,17,17,.06);
+      --track:0.08em;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;background:var(--porcelain);color:var(--ink);}
+    body{font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;line-height:1.6;}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    .container{max-width:var(--max);margin-inline:auto;padding-inline:24px}
+    /* NAV */
+    .nav{
+      position:sticky;top:0;z-index:20;
+      background:color-mix(in srgb, var(--porcelain) 82%, white 18%);
+      border-bottom:var(--ring); backdrop-filter:saturate(160%) blur(6px);
+    }
+    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:14px 0;}
+    .brand{display:flex;align-items:center;gap:14px;font-variant-caps:all-small-caps;letter-spacing:.12em;}
+    .brand svg{width:38px;height:38px;flex:0 0 38px}
+    .brand-title{font-family:"Cormorant Garamond", serif;font-size:20px;letter-spacing:.08em}
+    .menu{display:flex;gap:24px}
+    .menu a{font-size:14px;letter-spacing:.08em;text-transform:uppercase;color:var(--carbon)}
+    .cta{padding:10px 14px;border:1px solid var(--ink);border-radius:999px; font-size:13px;letter-spacing:.1em;text-transform:uppercase}
+    .hamburger{display:none;background:none;border:0;padding:8px}
+    /* HERO */
+    .hero{padding:72px 0 48px}
+    .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:center}
+    .eyebrow{letter-spacing:var(--track);text-transform:uppercase;color:var(--carbon);font-size:12px}
+    h1{font-family:"Cormorant Garamond", serif;font-size: clamp(38px, 6vw, 64px);line-height:1.1;margin:.25em 0 .4em}
+    .lede{max-width:46ch;color:var(--carbon)}
+    .hero-actions{margin-top:24px;display:flex;gap:12px;flex-wrap:wrap}
+    .btn{border:1px solid var(--ink);padding:12px 18px;border-radius:999px;text-transform:uppercase;letter-spacing:.1em;font-size:13px}
+    .btn.alt{border-color:transparent;background:var(--ink);color:var(--white)}
+    .card{background:var(--white);border:var(--ring);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+    .hero-visual .caption{padding:12px 16px;border-top:var(--ring);font-size:12px;color:var(--carbon)}
+    /* SECTION HEAD */
+    .section{padding:72px 0}
+    .section-head{display:flex;align-items:center;gap:18px;margin-bottom:28px}
+    .rule{flex:1;height:1px;background:linear-gradient(90deg, transparent, rgba(17,17,17,.2), transparent)}
+    .diamond{width:10px;height:10px;transform:rotate(45deg);border:1px solid var(--ink);background:var(--porcelain)}
+    h2{font-family:"Cormorant Garamond", serif;font-size: clamp(28px, 3.8vw, 42px);margin:0}
+    /* COLLECTION GRID */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}
+    .col-4{grid-column:span 4}
+    .col-6{grid-column:span 6}
+    .product{overflow:hidden}
+    .product figure{aspect-ratio:3/4;background:#eae6de}
+    .product h3{font-family:"Cormorant Garamond", serif;font-size:22px;margin:.75em 0 .25em}
+    .price{letter-spacing:.08em;text-transform:uppercase;font-size:12px;color:var(--carbon)}
+    .chip{display:inline-block;font-size:10px;letter-spacing:.08em;text-transform:uppercase;border:1px solid var(--ink);padding:6px 8px;border-radius:999px;margin-top:8px}
+    /* SIZE & FIT */
+    .fit{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+    .fit ul{margin:0;padding-left:18px}
+    .note{font-size:13px;color:var(--carbon)}
+    /* CRAFT */
+    .craft{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:center}
+    .pill{display:inline-block;border:1px solid var(--ink);padding:6px 10px;border-radius:999px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;margin-right:6px}
+    /* LOOKBOOK */
+    .masonry{columns:3 280px;column-gap:18px}
+    .masonry img{width:100%;margin:0 0 18px;border-radius:12px;border:var(--ring)}
+    /* TESTIMONIALS */
+    .quotes{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    blockquote{margin:0;padding:20px;border:var(--ring);border-radius:12px;background:var(--white);box-shadow:var(--shadow)}
+    blockquote p{font-family:"Cormorant Garamond", serif;font-size:20px}
+    cite{display:block;margin-top:8px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--carbon)}
+    /* JOURNAL */
+    .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .post{background:var(--white);border:var(--ring);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+    .post figure{aspect-ratio:16/10;background:#e9e5dd}
+    .post .body{padding:16px}
+    .meta{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--carbon)}
+    /* SIGNUP */
+    .signup{display:grid;grid-template-columns:1.2fr .8fr;gap:24px;align-items:center}
+    .form{display:flex;gap:10px;flex-wrap:wrap}
+    input[type=email]{flex:1;min-width:220px;border:1px solid var(--ink);border-radius:999px;padding:12px 14px;background:var(--white)}
+    /* FOOTER */
+    footer{padding:48px 0 64px;border-top:var(--ring);margin-top:72px}
+    .footgrid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:24px}
+    .footgrid a{display:block;color:var(--carbon);margin:6px 0}
+    .small{font-size:12px;color:var(--carbon)}
+    /* RESPONSIVE */
+    @media (max-width: 980px){
+      .hero-grid,.fit,.craft,.signup{grid-template-columns:1fr}
+      .menu{display:none}
+      .hamburger{display:inline-grid;gap:3px}
+      .hamburger span{width:20px;height:1px;background:var(--ink)}
+    }
+    @media (max-width:700px){
+      .grid{grid-template-columns:repeat(6,1fr)}
+      .col-6{grid-column:span 6}
+      .col-4{grid-column:span 6}
+      .quotes,.posts{grid-template-columns:1fr}
+      .footgrid{grid-template-columns:1fr 1fr}
+    }
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="nav" aria-label="Primary">
+    <div class="container nav-inner">
+      <a class="brand" href="#" aria-label="Charlotte Hanna Home">
+        <!-- Minimal ring monogram + diamond accent -->
+        <svg viewBox="0 0 64 64" role="img" aria-label="CH Monogram">
+          <circle cx="32" cy="32" r="27" fill="none" stroke="#111" stroke-width="1.6"/>
+          <text x="50%" y="57%" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="28" fill="#111">CH</text>
+        </svg>
+        <span class="brand-title">Charlotte Hanna</span>
+      </a>
+      <button class="hamburger" aria-expanded="false" aria-controls="mobileMenu" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="menu" id="desktopMenu">
+        <a href="#collection">Collection</a>
+        <a href="#fit">Size &amp; Fit</a>
+        <a href="#craft">Craft</a>
+        <a href="#lookbook">Lookbook</a>
+        <a href="#journal">Journal</a>
+      </div>
+      <a class="cta" href="#signup">Join</a>
+    </div>
+    <div class="container" id="mobileMenu" hidden>
+      <div class="card" style="padding:14px;margin-bottom:12px">
+        <a href="#collection">Collection</a><br>
+        <a href="#fit">Size &amp; Fit</a><br>
+        <a href="#craft">Craft</a><br>
+        <a href="#lookbook">Lookbook</a><br>
+        <a href="#journal">Journal</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero container">
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Petite Luxury</div>
+        <h1>Proportion-perfect silhouettes for women 5'4&quot; and under.</h1>
+        <p class="lede">Tailoring-first design, couture-grade fabrics, and quiet details made to flatter petite proportions—without compromise.</p>
+        <div class="hero-actions">
+          <a class="btn alt" href="#collection">Shop Signature</a>
+          <a class="btn" href="#lookbook">View Lookbook</a>
+        </div>
+      </div>
+      <div class="hero-visual card" aria-label="Featured look">
+        <img src="images/hero-placeholder.jpg" alt="Double-breasted petite blazer styled with silk trousers">
+        <div class="caption">Model is 5'2&quot; wearing size 0P. Tailored hem &amp; raised waist for leg-lengthening lines.</div>
+      </div>
+    </div>
+  </header>
+
+  <!-- COLLECTION -->
+  <section id="collection" class="section container">
+    <div class="section-head" role="presentation">
+      <span class="rule"></span><span class="diamond" aria-hidden="true"></span><h2>Signature Collection</h2><span class="rule"></span>
+    </div>
+    <div class="grid">
+      <article class="product card col-4">
+        <figure><img src="images/prod-blazer.jpg" alt="Petite tuxedo blazer in black wool-silk"></figure>
+        <div style="padding:14px 16px">
+          <h3>Tuxedo Blazer (Petite)</h3>
+          <div class="price">$690 • Wool-Silk</div>
+          <span class="chip">Shorter sleeve &amp; torso</span>
+        </div>
+      </article>
+      <article class="product card col-4">
+        <figure><img src="images/prod-dress.jpg" alt="Bias-cut midi dress with raised waist seam"></figure>
+        <div style="padding:14px 16px">
+          <h3>Bias Midi Dress</h3>
+          <div class="price">$540 • Silk Charmeuse</div>
+          <span class="chip">Raised waist seam</span>
+        </div>
+      </article>
+      <article class="product card col-4">
+        <figure><img src="images/prod-trouser.jpg" alt="High-rise tailored trouser with petite inseam"></figure>
+        <div style="padding:14px 16px">
+          <h3>Tailored Trouser</h3>
+          <div class="price">$420 • Virgin Wool</div>
+          <span class="chip">26–28&quot; inseam</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SIZE & FIT -->
+  <section id="fit" class="section container">
+    <div class="section-head"><span class="rule"></span><span class="diamond"></span><h2>Size &amp; Fit for Petites</h2><span class="rule"></span></div>
+    <div class="fit">
+      <div class="card" style="padding:22px">
+        <h3 style="margin-top:0;font-family:'Cormorant Garamond',serif">Proportions We Adjust</h3>
+        <ul>
+          <li>Raised waist &amp; darts for a longer-leg line</li>
+          <li>Shorter rise, sleeve and torso lengths</li>
+          <li>Narrowed shoulders and refined armholes</li>
+          <li>Scaled prints and trims</li>
+        </ul>
+        <p class="note">Our P sizes run 00P–14P. If between sizes, choose your usual and we’ll tailor complimentary hems within 14 days.</p>
+      </div>
+      <div class="card" style="padding:22px">
+        <h3 style="margin-top:0;font-family:'Cormorant Garamond',serif">Find Your Petite Size</h3>
+        <p>Use our guided fit tool or book a 15-minute virtual fitting with a Charlotte Hanna stylist.</p>
+        <div class="hero-actions">
+          <a class="btn" href="#">Start Fit Guide</a>
+          <a class="btn alt" href="#">Book Styling</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CRAFT -->
+  <section id="craft" class="section container">
+    <div class="section-head"><span class="rule"></span><span class="diamond"></span><h2>Craft &amp; Materials</h2><span class="rule"></span></div>
+    <div class="craft">
+      <div class="card"><img src="images/atelier.jpg" alt="Tailor hand-finishing a jacket sleeve in the atelier"></div>
+      <div>
+        <p class="eyebrow">Quiet Luxury</p>
+        <h3 style="font-family:'Cormorant Garamond',serif;margin-top:6px">Made in small European ateliers.</h3>
+        <p>We partner with heritage mills and workshops to produce limited runs with hand-finished details and responsible sourcing.</p>
+        <div style="margin-top:10px">
+          <span class="pill">Natural fibers</span>
+          <span class="pill">Made to last</span>
+          <span class="pill">Responsible supply</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOOKBOOK -->
+  <section id="lookbook" class="section container">
+    <div class="section-head"><span class="rule"></span><span class="diamond"></span><h2>Lookbook</h2><span class="rule"></span></div>
+    <div class="masonry" aria-label="Gallery">
+      <img src="images/look1.jpg" alt="Monochrome blazer look on 5'1 model">
+      <img src="images/look2.jpg" alt="Camel coat with silk scarf">
+      <img src="images/look3.jpg" alt="Evening dress with open back">
+      <img src="images/look4.jpg" alt="Tailored trouser and knit">
+      <img src="images/look5.jpg" alt="Structured midi skirt and blouse">
+      <img src="images/look6.jpg" alt="Double breasted coat, ankle boots">
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section class="section container">
+    <div class="section-head"><span class="rule"></span><span class="diamond"></span><h2>What Petite Clients Say</h2><span class="rule"></span></div>
+    <div class="quotes">
+      <blockquote>
+        <p>“The first blazer that doesn’t need altering. The sleeve hits perfectly.”</p>
+        <cite>— Maya L., 5'2"</cite>
+      </blockquote>
+      <blockquote>
+        <p>“Elegant, minimal, and finally proportioned for me.”</p>
+        <cite>— Elise B., 5'0"</cite>
+      </blockquote>
+      <blockquote>
+        <p>“The raised waist genuinely lengthens my legs. I’m obsessed.”</p>
+        <cite>— Hana K., 5'3"</cite>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- JOURNAL -->
+  <section id="journal" class="section container">
+    <div class="section-head"><span class="rule"></span><span class="diamond"></span><h2>Journal</h2><span class="rule"></span></div>
+    <div class="posts">
+      <article class="post">
+        <figure><img src="images/post-atelier.jpg" alt="Artisan stitching lining"></figure>
+        <div class="body">
+          <div class="meta">Craft</div>
+          <h3 style="margin:.4em 0;font-family:'Cormorant Garamond',serif">Inside the Atelier</h3>
+          <p>How we tailor every pattern block specifically for petite proportions.</p>
+        </div>
+      </article>
+      <article class="post">
+        <figure><img src="images/post-fabric.jpg" alt="Swatches of silk and wool"></figure>
+        <div class="body">
+          <div class="meta">Materials</div>
+          <h3 style="margin:.4em 0;font-family:'Cormorant Garamond',serif">Why Fabric Matters More</h3>
+          <p>Our mills and the textiles we choose for drape and longevity.</p>
+        </div>
+      </article>
+      <article class="post">
+        <figure><img src="images/post-fit.jpg" alt="Stylist measuring sleeve"></figure>
+        <div class="body">
+          <div class="meta">Fit</div>
+          <h3 style="margin:.4em 0;font-family:'Cormorant Garamond',serif">The Petite Proportion Guide</h3>
+          <p>Five design moves that lengthen the line without heels.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SIGNUP -->
+  <section id="signup" class="section container">
+    <div class="signup card" role="region" aria-labelledby="signupTitle" style="padding:24px">
+      <div>
+        <div class="eyebrow">Private Client</div>
+        <h2 id="signupTitle" style="margin:.2em 0">Be first to new releases.</h2>
+        <p class="note">Join for early access, private events, and tailoring perks. We send only a few emails each month.</p>
+      </div>
+      <form class="form" action="#" method="post" aria-label="Email sign up">
+        <label class="sr-only" for="email">Email</label>
+        <input id="email" type="email" name="email" placeholder="Your email address" required>
+        <button class="btn alt" type="submit">Join</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footgrid">
+      <div>
+        <div class="brand" style="margin-bottom:10px">
+          <svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="27" fill="none" stroke="#111" stroke-width="1.6"/><text x="50%" y="57%" text-anchor="middle" font-family="Cormorant Garamond, serif" font-size="28" fill="#111">CH</text></svg>
+          <span class="brand-title">Charlotte Hanna</span>
+        </div>
+        <p class="small">Proportion-perfect luxury for women 5'4&quot; and under.</p>
+      </div>
+      <div>
+        <strong>Shop</strong>
+        <a href="#collection">New Arrivals</a>
+        <a href="#collection">Tailoring</a>
+        <a href="#collection">Accessories</a>
+      </div>
+      <div>
+        <strong>About</strong>
+        <a href="#craft">Craft</a>
+        <a href="#fit">Size &amp; Fit</a>
+        <a href="#journal">Journal</a>
+      </div>
+      <div>
+        <strong>Help</strong>
+        <a href="#">Shipping &amp; Returns</a>
+        <a href="#">Book a Fitting</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="container" style="margin-top:24px">
+      <span class="small">© <span id="year"></span> Charlotte Hanna.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Accessible mobile nav
+    const btn = document.querySelector('.hamburger');
+    const menu = document.getElementById('mobileMenu');
+    btn?.addEventListener('click', () => {
+      const expanded = btn.getAttribute('aria-expanded') === 'true';
+      btn.setAttribute('aria-expanded', String(!expanded));
+      menu.hidden = expanded;
+    });
+    // Year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
